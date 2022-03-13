@@ -1,7 +1,9 @@
 CXX=g++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++17 -O3 -g
+CXXFLAGS=-Wall -Wextra -Werror -pedantic -std=c++17 -O3 -g
 LDFLAGS=$(CXXFLAGS)
 OBJ=$(SRC:.cc=.o)
+
+# if not working use: -D_POSIX_C_SOURCE=199309L
 
 all:  test_cities tsp test_chromosome test_climb_chromosome test_tournament_deme
 
