@@ -24,9 +24,7 @@
 
   // timing loop
   clock_gettime(CLOCK_MONOTONIC, &start);
-  for (counter = 0; counter < iters; counter++) {
-    update_coords(xs, ys, zs, vx, vy, vz, size);
-  }
+
   clock_gettime(CLOCK_MONOTONIC, &stop);
 
   // compute mean time per coordiante, in ns
@@ -34,7 +32,7 @@
       (stop.tv_sec - start.tv_sec) * 1e6 + (stop.tv_nsec - start.tv_nsec) / 1e3;
   mean_time = time_elapsed / (size * iters);
 
- /*some type*/ get_measurements(uint32 N){
+void get_measurements(uint32 N){
 
 	char* buffer = new char[argc];
 	TIME = 0; // do i need to initialize this if i already have in .hh?
@@ -53,7 +51,7 @@ return TIME/FPL;
 }
 
 // argc is N
-int main(uint32 argc){
+int main(unsigned long argc){
 	if (argc <1){std::cerr<<"Please enter a positive integer";}
 	measurement = get_measurements(argc);
 	//print n, then measurement
